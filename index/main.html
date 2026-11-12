@@ -10,12 +10,22 @@
         }
       }
     </script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
     <script type="module">
       import * as THREE from "three/webgpu";
 
       // サイズを指定
-      const width = 1920;
-      const height = 1020;
+      const height = window.innerHeight;
+      const width = window.innerWidth;
 
       // レンダラーを作成
       const renderer = new THREE.WebGPURenderer({
@@ -33,6 +43,16 @@
       // カメラを作成
       const camera = new THREE.PerspectiveCamera(45, width / height);
       camera.position.set(0, 0, +1000);
+
+      window.addEventListener("resize", () => {
+        const height = window.innerHeight;
+        const width = window.innerWidth;
+
+        renderer.setsize(width / height)
+
+        camera.aspect = width / height;
+        camera.updateProjectMatrix();
+      });
 
       // 箱を作成
       const geometry = new THREE.BoxGeometry(400, 400, 400);
