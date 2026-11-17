@@ -27,8 +27,18 @@
         display: block;
       }
     </style>
+    <script type="module">
+      import * as THREE from "three/webgpu"
+
+      const height = window.innerHeight;
+      const width = window.ineerWidth;
+
+      const renderer = new THREE.WebGPURenderer({
+        canvas: document.querySelector("myCanvas")
+      })
+    </script>
 </head>
 <body>
-  <canvas id="mycanvas"></canvas>
+  <canvas id="myCanvas"></canvas>
 </body>
 </html>
