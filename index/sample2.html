@@ -40,6 +40,25 @@
     renderer.setSize(width,height);
 
     renderer.setAnimationLoop(tick);
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x000000);
+
+    const camera = new THREE.PerspectiveCamera(45, width/height);
+    camera.position.set(0,0, +1000);
+
+    window.addEventListener("resize", () =>{
+      const height = window.innerHeight;
+      const width = window.innerWidth;
+
+      renderer.setSize(width,height);
+      camera.aspect = width/height;
+      camera.updateProjectionMatrix();
+    })
+
+    function tick(){
+      renderer.render(scene,camera);
+    }
   </script>
 </head>
 
