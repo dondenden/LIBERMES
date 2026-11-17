@@ -14,31 +14,37 @@
         }
       }
     </script>
-    <style>
-      html,
-      body {
-        margin: 0;
-        overflow: hidden;
-        height: 100%;
-        width: 100%;
-      }
+  <style>
+    html,
+    body {
+      margin: 0;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+    }
 
-      canvas {
-        display: block;
-      }
-    </style>
-    <script type="module">
-      import * as THREE from "three/webgpu"
+    canvas {
+      display: block;
+    }
+  </style>
+  <script type="module">
+    import * as THREE from "three/webgpu"
 
-      const height = window.innerHeight;
-      const width = window.ineerWidth;
+    const height = window.innerHeight;
+    const width = window.ineerWidth;
 
-      const renderer = new THREE.WebGPURenderer({
-        canvas: document.querySelector("myCanvas")
-      })
-    </script>
+    const renderer = new THREE.WebGPURenderer({
+      canvas: document.querySelector("myCanvas")
+    });
+    renderer.setPixelRatio(devicePixelRatio);
+    renderer.setSize(height, width);
+
+    renderer.setAnimationLoop(tick);
+  </script>
 </head>
+
 <body>
   <canvas id="myCanvas"></canvas>
 </body>
+
 </html>
