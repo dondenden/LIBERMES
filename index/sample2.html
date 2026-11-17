@@ -31,13 +31,13 @@
     import * as THREE from "three/webgpu"
 
     const height = window.innerHeight;
-    const width = window.ineerWidth;
+    const width = window.innerWidth;
 
     const renderer = new THREE.WebGPURenderer({
-      canvas: document.querySelector("myCanvas")
+      canvas: document.querySelector("#myCanvas")
     });
     renderer.setPixelRatio(devicePixelRatio);
-    renderer.setSize(height, width);
+    renderer.setSize(width,height);
 
     renderer.setAnimationLoop(tick);
   </script>
