@@ -50,6 +50,8 @@
     camera.position.set(0,0, +1000);
 
     const controls = new OrbitControls(camera,renderer.domElemnt);
+    renderer.domElement.addEventListener("pointerdown", () => console.log("クリックされた"));
+    controls.addEventListener("change", () => console.log("カメラが動いた"));
 
     window.addEventListener("resize", () =>{
       const height = window.innerHeight;
