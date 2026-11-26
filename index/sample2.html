@@ -10,7 +10,7 @@
       {
         "imports": {
           "three": "https://cdn.jsdelivr.net/npm/three@0.182.0/build/three.webgpu.js",
-          "three/webgpu": "https://cdn.jsdelivr.net/npm/three@0.182.0/build/three.webgpu.js"
+          "three/webgpu": "https://cdn.jsdelivr.net/npm/three@0.182.0/build/three.webgpu.js",
           "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.182.0/examples/jsm/"
         }
       }
@@ -49,7 +49,7 @@
     const camera = new THREE.PerspectiveCamera(45, width/height);
     camera.position.set(0,0, +1000);
 
-    const controls = new OrbitControls(camera,renderer);
+    const controls = new OrbitControls(camera,renderer.domElemnt);
 
     window.addEventListener("resize", () =>{
       const height = window.innerHeight;
@@ -60,7 +60,7 @@
       camera.updateProjectionMatrix();
     })
 
-    const mesh = new THREE.mesh(new THREE.BoxGeometry(400,400,400),new THREE.MeshNormalMaterial());
+    const mesh = new THREE.Mesh(new THREE.BoxGeometry(400,400,400),new THREE.MeshNormalMaterial());
     scene.add(mesh);
 
     function tick(){
