@@ -49,7 +49,7 @@
     const camera = new THREE.PerspectiveCamera(45, width/height);
     camera.position.set(0,0, +1000);
 
-    const controls = new OrbitControls(camera,renderer.domElemnt);
+    const controls = new OrbitControls(camera,renderer.domElement);
     renderer.domElement.addEventListener("pointerdown", () => console.log("クリックされた"));
     controls.addEventListener("change", () => console.log("カメラが動いた"));
 
